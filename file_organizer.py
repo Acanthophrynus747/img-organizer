@@ -9,12 +9,6 @@ os.remove("filename")  # error if not found
 os.rmdir("folder")  # error if not empty, or not found
 shutil.rmtree("folder")  # works for non empty directories
 
-input folder of images, 102Canon
-output images in folders by date
-
-enter file path to image folder
-enter path to destination
-
 https://stackoverflow.com/questions/48631908/python-extract-metadata-from-png/62456315#62456315
 
 https://www.geeksforgeeks.org/python/how-to-get-file-creation-and-modification-date-or-time-in-python/
@@ -25,7 +19,6 @@ https://www.geeksforgeeks.org/python/how-to-extract-image-metadata-in-python/
 from PIL import Image
 from PIL.ExifTags import TAGS
 import os
-import time
 import tkinter as tk
 from tkinter import filedialog
 import shutil
@@ -40,6 +33,9 @@ destination_dir_path = filedialog.askdirectory()
 print(destination_dir_path)
 
 source_dir_contents = os.listdir(source_dir_path)
+
+num_images = len(source_dir_contents)
+num_complete = 0
 
 # print(source_dir_contents)
 
@@ -66,15 +62,15 @@ for i in range(len(source_dir_contents)):
         new_folder_path = os.path.join(destination_dir_path, date_reformatted)
         print(f"Creating directory {date_reformatted} in {destination_dir_path}")
         os.mkdir(new_folder_path)
-        print(f"Moving {image_file_name} to directory {date_reformatted}")
         shutil.copy2(image_path, new_folder_path)
     else:
         shutil.copy2(image_path, os.path.join(destination_dir_path, date_reformatted))
-        print(f"Moving {image_file_name} to directory {date_reformatted}")
-
-
-
     
+    num_complete += 1
+
+    print(f"Moved {image_file_name} to directory {date_reformatted}. ({num_complete}/{num_images})")
+
+
 # for tag_id in exifdata:
 
 #     tag_name = TAGS.get(tag_id, tag_id)

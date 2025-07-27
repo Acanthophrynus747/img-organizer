@@ -39,13 +39,9 @@ print(source_dir_path)
 destination_dir_path = filedialog.askdirectory()
 print(destination_dir_path)
 
-# path = r"C:\Users\samso\Documents\code\python\file_organizer\test2\IMG_8300.CR2"
-
-# folder_path = r"C:\Users\samso\Documents\code\python\file_organizer\test2"
-
 source_dir_contents = os.listdir(source_dir_path)
 
-print(source_dir_contents)
+# print(source_dir_contents)
 
 for i in range(len(source_dir_contents)):
     image_file_name = source_dir_contents[i]
@@ -64,31 +60,21 @@ for i in range(len(source_dir_contents)):
 
     date_reformatted = date.replace(":", "-")
 
-    
-
     destination_dir_contents = os.listdir(destination_dir_path)
 
     if date_reformatted not in destination_dir_contents:
         new_folder_path = os.path.join(destination_dir_path, date_reformatted)
-        print(f"Creating directory {new_folder_path}")
+        print(f"Creating directory {date_reformatted} in {destination_dir_path}")
         os.mkdir(new_folder_path)
-        print(f"Moving {image_file_name} to new directory")
+        print(f"Moving {image_file_name} to directory {date_reformatted}")
         shutil.copy2(image_path, new_folder_path)
     else:
         shutil.copy2(image_path, os.path.join(destination_dir_path, date_reformatted))
-        print(f"Moving {image_file_name} to new directory")
+        print(f"Moving {image_file_name} to directory {date_reformatted}")
 
-
-
-        
 
 
     
-
-
-
-
-
 # for tag_id in exifdata:
 
 #     tag_name = TAGS.get(tag_id, tag_id)

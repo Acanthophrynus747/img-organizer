@@ -1,18 +1,14 @@
 '''
 https://www.python-engineer.com/posts/file-organization/
 
-
 shutil.copy('source', 'destination')  # new metatags
 shutil.copy2('source', 'destination')  # copies metadata, too
-
 os.remove("filename")  # error if not found
 os.rmdir("folder")  # error if not empty, or not found
 shutil.rmtree("folder")  # works for non empty directories
 
 https://stackoverflow.com/questions/48631908/python-extract-metadata-from-png/62456315#62456315
-
 https://www.geeksforgeeks.org/python/how-to-get-file-creation-and-modification-date-or-time-in-python/
-
 https://www.geeksforgeeks.org/python/how-to-extract-image-metadata-in-python/
 '''
 
@@ -53,7 +49,6 @@ for i in range(len(source_dir_contents)):
     date_time = exifdata.get(306)
     split_date_time = date_time.split()
     date = split_date_time[0]
-
     date_reformatted = date.replace(":", "-")
 
     destination_dir_contents = os.listdir(destination_dir_path)
@@ -70,16 +65,8 @@ for i in range(len(source_dir_contents)):
 
     print(f"Moved {image_file_name} to directory {date_reformatted}. ({num_complete}/{num_images})")
 
-
 # for tag_id in exifdata:
-
 #     tag_name = TAGS.get(tag_id, tag_id)
-
 #     value = exifdata.get(tag_id)
-
-    
-
 #     print(f"{tag_id}: {tag_name}: {value}")
 # print(img.info)
-
-# last modified might be the one to use for images, fresh off the card created would work too probably

@@ -1,2 +1,4 @@
 test/
 test_sink/
+build/
+img_mover.spec

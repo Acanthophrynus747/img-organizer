@@ -1,1 +1,1 @@
-pyinstaller --name img_mover --onefile file_organizer.py
+ pyinstaller --name img_mover --icon=img-org-icon.ico --onefile file_organizer.py

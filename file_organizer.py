@@ -31,7 +31,6 @@ print(destination_dir_path)
 source_dir_contents = os.listdir(source_dir_path)
 
 num_images = len(source_dir_contents)
-num_complete = 0
 
 # print(source_dir_contents)
 
@@ -60,10 +59,8 @@ for i in range(len(source_dir_contents)):
         shutil.copy2(image_path, new_folder_path)
     else:
         shutil.copy2(image_path, os.path.join(destination_dir_path, date_reformatted))
-    
-    num_complete += 1
 
-    print(f"Moved {image_file_name} to directory {date_reformatted}. ({num_complete}/{num_images})")
+    print(f"Moved {image_file_name} to directory {date_reformatted}. ({i}/{num_images})")
 
 # for tag_id in exifdata:
 #     tag_name = TAGS.get(tag_id, tag_id)

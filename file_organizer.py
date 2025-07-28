@@ -22,6 +22,9 @@ import shutil
 root = tk.Tk()
 root.withdraw()
 
+print("First select the folder with the images you want to move and organize, then select the folder to move them into.")
+print("The photos will be organized by date.")
+
 source_dir_path = filedialog.askdirectory()
 print(source_dir_path)
 

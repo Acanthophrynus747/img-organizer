@@ -1,0 +1,1 @@
+pyinstaller --name img_mover --onefile file_organizer.py

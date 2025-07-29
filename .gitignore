@@ -1,5 +1,5 @@
 test/
 test_sink/
 build/
-img_mover.spec
-img-move-gui.spec
+img-mover.spec
+img-mover-gui.spec
